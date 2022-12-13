@@ -1,0 +1,23 @@
+# Android-Hotel-Reservation-App
+Hotel reservation application with Firebase integrated using Cloud Messaging and FireStore services.
+Language: Java
+IDE: Android Studio
+Features:
+1. Nested Recycler View
+2. Firestore
+3. Progress dialogues
+4. Picasso
+5. Search from database
+
+********LEARNED OUTCOMES THAT WILL HELP YOU********
+1. MAKE A "Global.java" SINGELTON CLASS to handle FIREBASE/FIRESTORE "onSuccessListener/onCompleteListener" functions to keep local activity code clean
+2. Use Progress dialogues to show yourself/user progress
+3. Getting data from firestore (using onSuccessListener/onCompleteListener) uses another thread (seperate from your UI thread) hence you will face:
+    a) Main thread continues and UI is not updated. The Recycler view does not get the data since the original thread continues in parallel
+      with the onSuccessListener/onCompleteListener funcition thread.
+    b) You cant return values of data from onSuccessListener and onCompleteListener because they are void functions
+    *To get around these problems:
+      3.1: Make RecyclerView variable in activity a static and access it inside the onSuccessListener/onCompleteListener functions and update them
+      3.2: Use static "Object dataRecieved" variables in Global class, put the data recieved in them, and cast them as needed where needed
+4. Set document IDs (for firestore) yourself and ensure a way locally that the ID generated for the document are unique. For example, usernames for accounts.
+
